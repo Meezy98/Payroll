@@ -25,12 +25,11 @@ public class Employee {
     public String lastName;
 
     @OneToOne(cascade = CascadeType.MERGE)
-    @Column(nullable = false)
-    public int roleId;
-
+    @JoinColumn(name = "role", referencedColumnName = "roleId")
+    Role role;
     @OneToOne(cascade = CascadeType.MERGE)
-    @Column(nullable = false)
-    public int departmentId;
+    @JoinColumn(name = "department", referencedColumnName = "departmentId")
+    Department department;
 
     @Column(unique = true)
     public String email;
